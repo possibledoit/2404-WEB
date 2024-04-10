@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let 이전스크롤 = window.scrollY;
+        window.addEventListener('scroll' , (e)=>{
+            // console.log('스크롤 됨!');
+            // console.log(e);
+            console.log(window.scrollY > 이전스크롤 ? 'down' : 'up');
+            이전스크롤 = window.scrollY;
+        })
+    </script>
+</body>
+</html>
