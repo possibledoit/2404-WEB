@@ -270,14 +270,24 @@
         })
 
         const scrollInter = document.getElementsByClassName('scroll-inter');
-
+        const incline = document.querySelector('#start-together > .incline');
         window.addEventListener('scroll' , ()=>{
             for(let i = 0 ; i < scrollInter.length ; i ++) {
                 if(scrollInter[i].getBoundingClientRect().top < window.innerHeight) {
                     scrollInter[i].classList.add('active');
                  }
             }
-         })
+
+            if(incline.getBoundingClientRect().top < window.innerHeight) {
+                incline.classList.add('active');
+            }
+            
+        })
+
+        console.log(incline);
+        
+
+        
     </script>
 </body>
 </html>

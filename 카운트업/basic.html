@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운트업1</title>
+</head>
+<body>
+    <p class="target"></p>
+    
+    <script>
+        const target = document.querySelector('.target');
+
+        for(let i = 0 ; i <= 100 ; i ++) {
+            setTimeout(() => {
+                target.innerText = i;
+            }, 20 * i);
+        }
+    </script>
+</body>
+</html>

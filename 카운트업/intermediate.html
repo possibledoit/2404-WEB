@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운트업2</title>
+</head>
+<body>
+    <p class="target"></p>
+    
+    <script>
+        const target = document.querySelector('.target');
+
+        const 재생시간 = 1;
+        const 초당프레임 = 24;
+        const 총프레임 = 재생시간 * 초당프레임;
+        const 프레임1재생시간 = 1000 / 초당프레임;
+
+        const 목표값 = 800000;
+
+        for(let i = 0 ; i <= 총프레임 ; i ++) {
+            setTimeout(() => {
+                target.innerText = parseInt(목표값 / 총프레임 * i);
+            }, 프레임1재생시간 * i);
+        }
+    </script>
+</body>
+</html>
