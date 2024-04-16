@@ -109,8 +109,8 @@
 
         <section id="start-together">
             <h2 class="hidden">함께 시작하는 쏘카</h2>
-            <p>
-                <span class="point-blue count-up">8286684</span>명의 회원이 쏘카와
+            <p> 
+                <span class="point-blue count-up">9594184</span>명의 회원이 쏘카와
                 <br>
                 함께하고 있습니다.
                 <br>
@@ -248,6 +248,8 @@
         <p>쏘카 앱 다운로드</p>
     </section>
 
+    <script src="/학습예제/socar/js/makeCountup.js"></script>
+
     <script>
         const header = document.querySelector('header');
 
@@ -271,23 +273,39 @@
 
         const scrollInter = document.getElementsByClassName('scroll-inter');
         const incline = document.querySelector('#start-together > .incline');
+        const countUpTarget = document.querySelector('.point-blue.count-up');
+
+        let playAble = true;
+
         window.addEventListener('scroll' , ()=>{
             for(let i = 0 ; i < scrollInter.length ; i ++) {
                 if(scrollInter[i].getBoundingClientRect().top < window.innerHeight) {
-                    scrollInter[i].classList.add('active');
+                    setTimeout(() => {
+                        scrollInter[i].classList.add('active');
+                    }, 300);
                  }
             }
 
             if(incline.getBoundingClientRect().top < window.innerHeight) {
-                incline.classList.add('active');
+                setTimeout(() => {
+                    incline.classList.add('active');
+                }, 300);
             }
-            
+
+            if(playAble && countUpTarget.getBoundingClientRect().top < window.innerHeight) {
+                makeCountup(countUpTarget, 9594184);
+                playAble = false;
+                // countUpTarget.classList.add('played');
+            }
         })
 
-        console.log(incline);
-        
+        const appDownload = document.getElementById('app-download');
 
-        
+        setTimeout(() => {
+            appDownload.classList.add('active');
+        }, 300);
+
+        console.log(incline);
     </script>
 </body>
 </html>
