@@ -279,17 +279,13 @@
 
         window.addEventListener('scroll' , ()=>{
             for(let i = 0 ; i < scrollInter.length ; i ++) {
-                if(scrollInter[i].getBoundingClientRect().top < window.innerHeight) {
-                    setTimeout(() => {
-                        scrollInter[i].classList.add('active');
-                    }, 300);
+                if(scrollInter[i].getBoundingClientRect().top < window.innerHeight / 3 * 2) {
+                    scrollInter[i].classList.add('active');
                  }
             }
 
-            if(incline.getBoundingClientRect().top < window.innerHeight) {
-                setTimeout(() => {
-                    incline.classList.add('active');
-                }, 300);
+            if(incline.getBoundingClientRect().top < window.innerHeight / 3 * 2) {
+                incline.classList.add('active');
             }
 
             if(playAble && countUpTarget.getBoundingClientRect().top < window.innerHeight) {
