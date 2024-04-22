@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>드래그이벤트</title>
+    <title>드래그이벤트1</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-
         .test {
-            width: 100px;
-            height: 100px;
-            background-color: pink;
+            /* width: 100px; */
+            /* height: 100px; */
+            display: none;
+            background-color: rgba(0, 0, 255, 0.285);
+            border: 1px solid blue;
             position: fixed;
         }
     </style>
@@ -60,12 +61,14 @@
 
         let posX, posY;
         let clicked = false;
+        let moveX;
+        let moveY;
 
         const test = document.querySelector('.test');
 
         window.addEventListener('mousedown', (e)=>{
             clicked = true;
-
+            test.style.display='block';
             posX = e.clientX;
             posY = e.clientY;
 
@@ -73,20 +76,38 @@
             test.style.left = `${e.clientX}px`;
         })
 
-        window.addEventListener('mousemove', (e)=>{
-            if(clicked) {
-                console.log(e);
+        window.addEventListener('mousemove',(e)=>{
+            if(clicked){
+                moveX = e.clientX-posX;
+                moveY = e.clientY-posY;
 
-                test.style.width = `${e.clientX - posX}px`;
-                test.style.height = `${e.clientY - posY}px`;
+                // 조건식?참일때:거짓일때
+                // 양수면 그냥 쓰고 음수면 -1을 곱할것이다
+                test.style.width = `${Math.abs(moveX)}px`
+                test.style.height = `${moveY < 0 ? moveY * -1 : moveY}px`
+
+                if(moveX < 0){
+                    test.style.left = `${e.clientX}px`;
+                }else {
+                    test.style.left = `${posX}px`
+                }
+
+                if(moveY < 0) {
+                    test.style.top = `${e.clientY}px`
+                }else {
+                    test.style.top = `${posY}px`
+                }
             }
         })
-
+        
         window.addEventListener('mouseup', (e)=>{
             clicked = false;
-
-            console.log(`X : ${e.clientX - posX}, Y : ${e.clientY - posY}`);
+            console.log(`X : ${moveX}, Y : ${moveY}`)
+            
+            test.style.width = `0px`
+            test.style.height = `0px`
+            test.style.display='none'
         })
-    </script>
+     </script>
 </body>
 </html>
