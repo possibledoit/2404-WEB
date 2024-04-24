@@ -86,14 +86,14 @@
                 offY = e.offsetY;
             })
 
-            document.addEventListener('mousemove',(e)=>{
+            document.addEventListener('mousemove', (e)=>{
                 if(isClicked){
                     test.style.top = `${e.clientY - offY}px`
                     test.style.left = `${e.clientX - offX}px`
                 }
             })
 
-            document.addEventListener('mouseup',()=>{
+            document.addEventListener('mouseup', ()=>{
                 isClicked = false
             })
         }
