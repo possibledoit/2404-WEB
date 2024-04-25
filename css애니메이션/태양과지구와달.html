@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>css애니메이션1</title>
+    <title>css애니메이션2</title>
 
     <style>
         * {
@@ -18,8 +18,24 @@
             transform: translate(-50%, -50%);
         }
 
+        .sun {
+            width: 300px;
+            background-color: red;
+            left: 50%;
+            top: 50%;
+        }
+
+        .earth-system {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .earth {
-            width: 200px;
+            width: 100px;
             background-color: blue;
             left: 50%;
             top: 50%;
@@ -33,10 +49,10 @@
             transform: translate(-50%, calc(-50% + -200px));
             transform-origin: 50% calc(50% + 200px);
 
-            animation: revolution 5s linear infinite;
+            animation: moon-revolution 5s linear infinite;
         }
 
-        @keyframes revolution {
+        @keyframes moon-revolution {
             0% {
                 transform: translate(-50%, calc(-50% + -200px)) rotate(0deg);
             }
@@ -47,8 +63,11 @@
     </style>
 </head>
 <body>
+    <div class="sun orb"></div>
 
-    <div class="earth orb"></div>
-    <div class="moon orb"></div>
+    <div class="earth-system">
+        <div class="earth orb"></div>
+        <div class="moon orb"></div>
+    </div>
 </body>
 </html>
