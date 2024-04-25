@@ -15,7 +15,7 @@
             border-radius: 50%;
             position: absolute;
             aspect-ratio: 1;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         .earth {
@@ -30,7 +30,7 @@
             background-color: gray;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,calc(-50% + -200px));
+            transform: translate(-50%, calc(-50% + -200px));
             transform-origin: 50% calc(50% + 200px);
 
             animation: revolution 5s linear infinite;
@@ -38,10 +38,10 @@
 
         @keyframes revolution {
             0% {
-                transform: translate(-50%,calc(-50% + -200px)) rotate(0deg);
+                transform: translate(-50%, calc(-50% + -200px)) rotate(0deg);
             }
             100% {
-                transform: translate(-50%,calc(-50% + -200px)) rotate(360deg);
+                transform: translate(-50%, calc(-50% + -200px)) rotate(360deg);
             }
         }
     </style>
