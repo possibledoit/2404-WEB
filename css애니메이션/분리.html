@@ -20,7 +20,7 @@
             width: 0;
             height: 0;
             position: absolute;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             top: 50%;
             left: 50%;
         }
@@ -31,7 +31,7 @@
             border-radius: 50%;
             top: 0;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         .revolution {
@@ -73,7 +73,7 @@
             width: 700px;
         }
 
-        .mars>.orb {
+        .mars > .orb {
             width: 20px;
             background-color: yellow;
         }
@@ -82,7 +82,7 @@
             width: 300px;
         }
 
-        .vinus>.orb{
+        .vinus > .orb{
             width: 17px;
             background-color: pink;
         }
@@ -91,7 +91,7 @@
             width: 25px;
         }
 
-        .pobos>.orb{
+        .pobos > .orb{
             width: 5px;
             background-color: azure;
         }
@@ -128,7 +128,7 @@
         <div class="mars revolution" data-revolution="687">
             <div class="orb"></div>
 
-            <div class="pobos revolution" data-revolution="7.6">
+            <div class="pobos revolution" data-revolution="1s / 24 * 7.6">
                 <div class="orb"></div>
             </div>
         </div>
@@ -141,7 +141,7 @@
         const revolutions = document.getElementsByClassName('revolution');
 
         for(let i = 0 ; i < revolutions.length ; i ++) {
-            revolutions[i].style.animationDuration = `${playRate * 24 / 1}s`
+            revolutions[i].style.animationDuration = `${playRate * 24}s`;
         }
     </script>
 </body>
