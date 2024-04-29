@@ -19,6 +19,11 @@
             top: 100px;
             animation: rotate 10s linear infinite;
             border: 1px solid pink;
+
+            /* 자식요소 가운데정렬을 위해 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         @keyframes rotate {
@@ -36,30 +41,27 @@
             height: 100px;
             background-color: gray;
             position: absolute;
-            transform: translate(-50%, -50%);
 
             font-size: 24px;
             font-weight: bold;
             display: flex;
             justify-content: center;
             align-items: center;
+            transform-origin: 50% calc(50% + 200px);
+
         }
 
         .top {
-            top: 0;
-            left: 50%;
+            transform: translateY(-200px) rotate(0deg);
         }
         .left {
-            left: 0;
-            top: 50%;
+            transform: translateY(-200px) rotate(90deg);
         }
         .right{
-            left: 100%;
-            top: 50%;
+            transform: translateY(-200px) rotate(180deg);
         }
         .bottom {
-            top: 100%;
-            left: 50%;
+            transform: translateY(-200px) rotate(270deg);
         }
     </style>
 </head>
