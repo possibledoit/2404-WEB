@@ -128,7 +128,7 @@
         <div class="mars revolution" data-revolution="687">
             <div class="orb"></div>
 
-            <div class="pobos revolution" data-revolution="1s / 24 * 7.6">
+            <div class="pobos revolution" data-revolution="0.3166">
                 <div class="orb"></div>
             </div>
         </div>
@@ -138,10 +138,13 @@
         const test = document.querySelector('.test');
         console.log(Number(test.dataset.time));
         const playRate = 1;
+        // const playRate = 1 / 60 / 60 / 24; -> 원래의 도는 속도
         const revolutions = document.getElementsByClassName('revolution');
 
         for(let i = 0 ; i < revolutions.length ; i ++) {
-            revolutions[i].style.animationDuration = `${playRate * 24}s`;
+            console.log(Number(revolutions[i].dataset.revolution / playRate));
+
+            revolutions[i].style.animationDuration = `${Number(revolutions[i].dataset.revolution / playRate)}s`;
         }
     </script>
 </body>
