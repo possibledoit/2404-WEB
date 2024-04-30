@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회전사각형2</title>
+    <title>드래그1</title>
 
     <style>
         * {
@@ -24,16 +24,6 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-            
         }
 
         .container > div {
@@ -86,7 +76,7 @@
         const deg = 360 / count;
 
         for(let i = 0 ; i < count ; i ++) {
-            container.appendChild(makeContents(i+1)); // <div class = 'content'>1</div>
+            container.appendChild(makeContents(i + 1)); // <div class = 'content'>1</div>
         }
 
         // 실제 들어가야되는 rotate값 : deg * index;
@@ -102,6 +92,50 @@
 
             return newContents;
         }
+
+        // 드래그 이벤트를 만들것.
+        // 좌표 감지는 X축(좌우방향)
+        // 드래그를 통해서 X축 이동이 왼쪽(음수, -방향)이면 rotate를 -방향으로
+        // X축 이동이 오른쪽(양수, +방향) rotate를 +방향으로
+        // rotate되는 비율은 신경쓰지 않습니다.
+
+        // 드래그할때 변수 안의 값을 변경하고, rotate에 적용해주는 과정 필수
+
+        let conDeg = 0;
+        let isClicked = false
+        let posX;
+        let move;
+        const mag = 5;
+        container.addEventListener('mousedown',(e)=>{
+            isClicked = true;
+            posX = e.clientX;
+        })
+        document.addEventListener('mousemove', (e) =>{
+            if(isClicked){
+                e.preventDefault();
+                move = e.clientX - posX;
+                container.style.transform = `rotate(${conDeg + move / mag}deg)`
+            }
+        })
+        document.addEventListener('mouseup',()=>{
+            if(isClicked){
+                isClicked = false
+                conDeg = conDeg + move / mag
+            }
+        })
+
+        document.addEventListener('keydown',()=>{
+            console.log(conDeg, conDeg + move / mag);
+        })
+
+        // 드래그 이벤트를 만들것.
+        // 좌표 감지는 X축(좌우방향)
+        // 드래그를 통해서 x축 이동이 왼쪽(음수, -방향)이면 rotate를 -방향으로,
+        // x축이동이 오른쪽(양수, +방향) rotate를 +방향으로 
+        // 로테이트되는 비율은 신경쓰지 않습니다.
+        // 자바스크립트 안에 각도값을 하나 저장해놓을 변수를 만들어야합니다.
+
+        // 드래그할때 변수 안의 값을 변경하고, rotate에 적용해주는 과정 필수
     </script>
 </body>
 </html>
