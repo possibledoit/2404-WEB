@@ -106,7 +106,7 @@
         let posX;
         let move;
         const mag = 5;
-        container.addEventListener('mousedown',(e)=>{
+        container.addEventListener('mousedown', (e)=>{
             isClicked = true;
             posX = e.clientX;
         })
@@ -117,14 +117,14 @@
                 container.style.transform = `rotate(${conDeg + move / mag}deg)`;
             }
         })
-        document.addEventListener('mouseup',()=>{
+        document.addEventListener('mouseup', ()=>{
             if(isClicked){
                 isClicked = false;
                 conDeg = conDeg + move / mag;
             }
         })
 
-        document.addEventListener('keydown',()=>{
+        document.addEventListener('keydown', ()=>{
             console.log(conDeg, conDeg + move / mag);
         })
     </script>
