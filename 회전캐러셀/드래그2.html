@@ -31,6 +31,7 @@
             height: 100px;
             background-color: gray;
             position: absolute;
+            top: -50px;
 
             font-size: 24px;
             font-weight: bold;
@@ -38,7 +39,14 @@
             justify-content: center;
             align-items: center;
             transform-origin: 50% calc(50% + 200px);
+        }
 
+        .container>.content {
+            background-image: url(Tarot-card-divination-sun-pattern-creative-shape-scarey_426578_wh860.png);
+            background-position: 50% 50%;
+            background-size: 250%;
+            width: 100px;
+            height: 200px;
         }
 
         /* 
@@ -75,7 +83,7 @@
         // 컨텐츠의 갯수에 따라 자동으로 각도를 계산해서 넣어주는 자바스크립트를 작성해봅시다!
         const container = document.querySelector('.container');
         const contents = document.getElementsByClassName('content');
-        const count = 5; 
+        const count = 10; 
         const deg = 360 / count;
 
         for(let i = 0 ; i < count ; i ++) {
@@ -95,45 +103,36 @@
 
             return newContents;
         }
-
-        // 드래그 이벤트를 만들것.
-        // 좌표 감지는 X축(좌우방향)
-        // 드래그를 통해서 X축 이동이 왼쪽(음수, -방향)이면 rotate를 -방향으로
-        // X축 이동이 오른쪽(양수, +방향) rotate를 +방향으로
-        // rotate되는 비율은 신경쓰지 않습니다.
-
-        // 드래그할때 변수 안의 값을 변경하고, rotate에 적용해주는 과정 필수
-
         // conDeg : 컨테이너의 회전 각도를 저장해놓는 변수
         let conDeg = 0;
 
         let isClicked = false;
         let posX, posY;
         let moveX, moveY;
-
+        let clickDeg;
+        
         container.addEventListener('mousedown', (e)=>{
             isClicked = true;
             posX = container.getBoundingClientRect().left + container.getBoundingClientRect().width / 2;
             posY = container.getBoundingClientRect().top + container.getBoundingClientRect().height / 2;
+            clickDeg = getDegree(e.clientX - posX, e.clientY - posY);
         })
         document.addEventListener('mousemove', (e)=>{
             if(isClicked){
                 e.preventDefault();
                 moveX = e.clientX - posX;
                 moveY = e.clientY - posY;
-                console.log(getDegree(moveX, moveY));
-                container.style.transform = `rotate(${conDeg - getDegree(moveX, moveY)}deg)`;
+                container.style.transform = `rotate(${conDeg + getDegree(moveX, moveY) - clickDeg}deg)`;
             }
         })
         document.addEventListener('mouseup', ()=>{
             if(isClicked){
                 isClicked = false;
-                conDeg = conDeg - getDegree(moveX, moveY);
+                conDeg = conDeg + getDegree(moveX, moveY) - clickDeg;
             }
         })
 
         document.addEventListener('keydown', ()=>{
-            console.log(conDeg, conDeg - getDegree(moveX, moveY));
         })
     </script>
 </body>
