@@ -21,6 +21,14 @@
 
         .my-content {
             background-color: white;
+            margin: 10px;
+            transition: 500ms;
+        }
+
+        .slick-center {
+            transform: scale(1.2);
+            color: red;
+
         }
     </style>
 
@@ -38,7 +46,17 @@
     </script>
 </head>
 <body>
-    <button class="continue">ㅎㅎ</button>
+    <!-- 자주 사용하는 라이브러리들 -->
+    <!-- 
+        slick : 캐러셀 만드는 라이브러리
+        fullPage.js : 풀페이지 만드는 라이브러리인데, 트렌드가 지났기도 하고, 반응형 만들기가 어려워 비추천
+        chart.js : 웹에서 차트를 그려야할때 사용 할 수 있는 라이브러리
+        animate on scroll : 스크롤에 따라 나타나는 애니메이션 라이브러리
+
+        tailwind : 리액트와 함께 쓰기 좋은 css 라이브러리
+     -->
+
+    <button class="continue">안녕</button>
 
     <div class="your-class">
         <div class="my-content">your content</div>
@@ -53,7 +71,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- slick js -->
     
-    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script>
         // document.querySelector('button.continue').innerHTML = 'Next Step...'
@@ -64,7 +81,7 @@
 
         const button = $('.continue');
         button.addClass('my-class');
-        console.log(button)
+        console.log(button);
 
         // const slider = document.querySelector('.your.class')
         // slider.slick()
@@ -74,7 +91,8 @@
             Infinity : true,
             speed : 1000,
             slidesToShow : 3,
-            slidesToScroll : 1
+            slidesToScroll : 1,
+            centerMode: true
         });
     </script>
 </body>
