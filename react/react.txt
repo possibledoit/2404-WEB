@@ -1,0 +1,40 @@
+<react 개발환경 구축>
+
+npm(node package manager) 
+-> 다른 개발자들이 만들어놓은 다양한 라이브러리들을 갖다 쓸수있게 해주는 친구
+
+npm을 쓰려면 node.js를 설치해야한다.
+Visual Studio Code를 한 번 껐다 켜야 함.
+
+터미널에 node -v를 입력했을때 버전이 출력되면 제대로 설치된 것!
+
+<react 설치>
+npm install -g create-react-app => npm으로 설치한다 , -g(글로벌)
+
+<내가 react 프로젝트를 만들고자하는 위치로 이동할때>
+dir : 내 경로에서 이동 가능한곳을 보여준다.
+cd 경로 : 원하는 곳으로 이동하게 해준다.
+cd.. : 상위폴더로 이동
+
+npx create-react-app 프로젝트이름
+
+react에서 사용하는 문법은 jsx라고 부른다.
+HTML과 굉장히 유사하지만 , 내용이 전부 js 함수 안에 작성되는 방식이다.
+
+jsx >>>
+const element = <h1>hello, react!</h1>
+
+js >>>
+const element = document.createElement('h1);
+const text = document.createTextNode('hello, react!');
+element.appendchild(text);
+
+jsx >>>
+const name 'john';
+const element = <h1>hello {name}!</h1>
+
+js >>>
+const name 'john';
+const element = document.createElement('h1')
+const text = document.createTextNode(`hello, ${name}!`)
+element.appendchild(text);
